@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \URL::forceSchema('https');
+        \URL::forceScheme('https');
 
         if(config('filesystems.default') === 'local'){
             Storage::disk('local')->buildTemporaryUrlsUsing(function ($path, $expiration, $options) {
