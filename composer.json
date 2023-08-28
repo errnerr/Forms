@@ -11,12 +11,6 @@
   ],
   "license": "MIT",
   "type": "project",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/JhumanJ/laravel-notion-api.git"
-    }
-  ],
   "require": {
     "php": "^8.0",
     "ext-json": "*",
@@ -36,7 +30,6 @@
     "laravel/vapor-ui": "^1.5",
     "league/flysystem-aws-s3-v3": "^3.0",
     "maatwebsite/excel": "^3.1",
-    "openai-php/client": "^0.3.5",
     "propaganistas/laravel-disposable-email": "^2.2",
     "sentry/sentry-laravel": "^2.11.0",
     "spatie/laravel-sitemap": "^6.0",
