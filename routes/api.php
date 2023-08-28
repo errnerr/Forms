@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'auth:api', 'scheme' => 'https'], function () {
     Route::post('logout', [LoginController::class, 'logout']);
 
     Route::get('user', [UserController::class, 'current']);
@@ -110,13 +110,13 @@ Route::group(['middleware' => 'auth:api'], function () {
         });
     });
 
-    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'scheme' => 'https'], function () {
         Route::get('impersonate/{identifier}',
             [\App\Http\Controllers\Admin\ImpersonationController::class, 'impersonate']);
     });
 });
 
-Route::group(['middleware' => 'guest:api'], function () {
+Route::group(['middleware' => 'guest:api', 'scheme' => 'https'], function () {
     Route::post('login', [LoginController::class, 'login']);
     // Route::post('register', [RegisterController::class, 'register']);
 
