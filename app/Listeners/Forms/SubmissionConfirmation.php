@@ -36,7 +36,12 @@ class SubmissionConfirmation implements ShouldQueue
             'form_id' => $event->form->id,
             'form_slug' => $event->form->slug,
         ]);
-        Mail::to($email)->send(new SubmissionConfirmationMail($event));
+        if($event->form->name === 'Wintringham Community Hall'){
+            Mail::mailer('smtp2')->to($email)->send(new SubmissionConfirmationMail($event));
+        } else {
+            Mail::to($email)->send(new SubmissionConfirmationMail($event));
+        }
+        
     }
 
     private function getRespondentEmail(FormSubmitted $event)

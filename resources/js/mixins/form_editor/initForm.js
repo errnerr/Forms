@@ -21,7 +21,7 @@ export default {
         dark_mode: 'auto',
         color: '#3B82F6',
         hide_title: false,
-        no_branding: false,
+        no_branding: true,
         uppercase_labels: true,
         transparent_background: false,
         closes_at: null,
