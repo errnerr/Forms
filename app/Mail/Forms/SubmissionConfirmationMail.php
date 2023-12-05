@@ -35,6 +35,8 @@ class SubmissionConfirmationMail extends OpenFormMail implements ShouldQueue
             ->createLinks()
             ->outputStringsOnly();
 
+        if($form === 'Wintringham Community Hall')
+
         return $this
             ->replyTo($form->creator->email)
             ->from($this->getFromEmail(), $form->notification_sender)

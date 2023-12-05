@@ -27,7 +27,7 @@ class CreateFormsTable extends Migration
             $table->text('re_fill_button_text')->default('Fill Again');
             $table->string('color')->default('#3B82F6');
             $table->boolean('uppercase_labels')->default(true);
-            $table->boolean('no_branding')->default(false);
+            $table->boolean('no_branding')->default(true);
             $table->boolean('hide_title')->default(false);
             $table->text('submitted_text')->default('Amazing, we saved your answers. Thank you for your time and have a great day!');
             $table->string('dark_mode')->default('auto');
