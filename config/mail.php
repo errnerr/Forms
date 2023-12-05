@@ -50,6 +50,7 @@ return [
             'encryption' => env('MAIL_ENCRYPTION2', 'tls'),
             'username' => env('MAIL_USERNAME2'),
             'password' => env('MAIL_PASSWORD2'),
+            'from' => env('MAIL_FROM_ADDRESS2'),
             'timeout' => null,
             'auth_mode' => null,
         ],
