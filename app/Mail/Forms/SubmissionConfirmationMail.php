@@ -34,8 +34,19 @@ class SubmissionConfirmationMail extends OpenFormMail implements ShouldQueue
         $formatter = (new FormSubmissionFormatter($form, $this->event->data))
             ->createLinks()
             ->outputStringsOnly();
-
-        return $this
+        if($this->event->form->id = 8){
+            return $this
+            ->replyTo($form->creator->email)
+            ->from(env('MAIL_FROM_ADDRESS2'), $form->notification_sender)
+            ->subject($form->notification_subject)
+            ->markdown('mail.form.confirmation-submission-notification',[
+                'fields' => $formatter->getFieldsWithValue(),
+                'form' => $form,
+                'noBranding' => $form->no_branding,
+                'submission_id' => $this->event->data['submission_id'] ?? null
+            ]);
+        } else {
+            return $this
             ->replyTo($form->creator->email)
             ->from($this->getFromEmail(), $form->notification_sender)
             ->subject($form->notification_subject)
@@ -45,6 +56,8 @@ class SubmissionConfirmationMail extends OpenFormMail implements ShouldQueue
                 'noBranding' => $form->no_branding,
                 'submission_id' => $this->event->data['submission_id'] ?? null
             ]);
+        }
+
     }
 
     private function getFromEmail()
