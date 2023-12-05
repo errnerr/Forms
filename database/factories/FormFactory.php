@@ -67,7 +67,7 @@ class FormFactory extends Factory
             'dark_mode' => $this->faker->randomElement(Form::DARK_MODE_VALUES),
             'color' => '#3B82F6',
             'hide_title' => false,
-            'no_branding' => false,
+            'no_branding' => true,
             'uppercase_labels' => true,
             'transparent_background' => false,
             'submit_button_text' => 'Submit',
