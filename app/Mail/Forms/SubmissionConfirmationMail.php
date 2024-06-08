@@ -34,7 +34,7 @@ class SubmissionConfirmationMail extends OpenFormMail implements ShouldQueue
         $formatter = (new FormSubmissionFormatter($form, $this->event->data))
             ->createLinks()
             ->outputStringsOnly();
-        if($this->event->form->id = 8){
+        if($this->event->form->id == 8){
             return $this
             ->replyTo($form->creator->email)
             ->from(env('MAIL_FROM_ADDRESS2'), $form->notification_sender)
